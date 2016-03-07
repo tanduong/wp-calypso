@@ -14,7 +14,9 @@ var tinymce = require( 'tinymce/tinymce' ),
 	debounce = require( 'lodash/debounce' ),
 	ReactDom = require( 'react-dom' ),
 	React = require( 'react'),
-	i18n = require( 'i18n-calypso' );
+	i18n = require( 'i18n-calypso' ),
+	React = require( 'react' );
+import { Provider as ReduxProvider } from 'react-redux';
 
 /**
  * Internal dependencies
@@ -90,11 +92,13 @@ function wpview( editor ) {
 			type = $view.attr( 'data-wpview-type' );
 
 			ReactDom.render(
-				React.createElement( views.components[ type ], {
-					content: getText( view ),
-					siteId: sites.getSelectedSite() ? sites.getSelectedSite().ID : null,
-					onResize: debounce( triggerNodeChanged, 500 )
-				} ),
+				React.createElement( ReduxProvider, { store: editor.getParam( 'redux_store' ) },
+					React.createElement( views.components[ type ], {
+						content: getText( view ),
+						siteId: sites.getSelectedSite() ? sites.getSelectedSite().ID : null,
+						onResize: debounce( triggerNodeChanged, 500 )
+					} )
+				),
 				$view.find( '.wpview-body' )[0]
 			);
 
