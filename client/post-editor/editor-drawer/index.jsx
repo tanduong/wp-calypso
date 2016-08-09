@@ -38,6 +38,7 @@ import EditorDrawerFeaturedImage from './featured-image';
 import EditorDrawerTaxonomies from './taxonomies';
 import EditorDrawerPageOptions from './page-options';
 import EditorDrawerLabel from './label';
+import EditorDrawerCopyPost from './copy-post';
 
 /**
  * Constants
@@ -261,7 +262,7 @@ const EditorDrawer = React.createClass( {
 		const { type, post, site } = this.props;
 
 		return (
-			<CopyPostAccordion
+			<EditorDrawerCopyPost
 				type={ type }
 				post={ post }
 				site={ site }
