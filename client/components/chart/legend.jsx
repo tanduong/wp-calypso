@@ -2,14 +2,14 @@
  * External dependencies
  */
 import React from 'react';
-const PureRenderMixin = require( 'react-pure-render/mixin' );
 import debugModule from 'debug';
 
-const debug = debugModule( 'calypso:module-chart:legend' );
-
 /**
- * Internal dependencies
+ * Module variables
  */
+const debug = debugModule( 'calypso:module-chart:legend' );
+// TODO: remove and extend from PureComponent after porting the component to ES6
+const PureRenderMixin = require( 'react-pure-render/mixin' );
 
 const LegendItem = React.createClass( {
 	displayName: 'ModuleChartLegendItem',
