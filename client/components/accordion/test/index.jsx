@@ -12,7 +12,6 @@ import TestUtils from 'react-addons-test-utils';
 const Accordion = require( '../' );
 
 describe( 'index', function() {
-	require( 'react-tap-event-plugin' )();
 	require( 'test/helpers/use-fake-dom' )();
 
 	afterEach( function() {
