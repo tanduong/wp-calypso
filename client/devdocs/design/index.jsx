@@ -91,15 +91,17 @@ let DesignAssets = React.createClass( {
 	},
 
 	renderCake() {
-		this.props.component
-			? <HeaderCake onClick={ this.backToComponents } backText="All Components">
-				{ slugToCamelCase( this.props.component ) }
-			</HeaderCake>
-			: <SearchCard
-				onSearch={ this.onSearch }
-				initialValue={ this.state.filter }
-				placeholder="Search components…"
-				analyticsGroup="Docs" />;
+		return (
+			this.props.component
+				? <HeaderCake onClick={ this.backToComponents } backText="All Components">
+					{ slugToCamelCase( this.props.component ) }
+				</HeaderCake>
+				: <SearchCard
+					onSearch={ this.onSearch }
+					initialValue={ this.state.filter }
+					placeholder="Search components…"
+					analyticsGroup="Docs" />
+		);
 	},
 
 	render() {
@@ -112,6 +114,7 @@ let DesignAssets = React.createClass( {
 
 				<Collection
 					component={ component }
+					isolate={ isolate }
 					filter={ filter }
 				>
 					<Accordions componentUsageStats={ componentsUsageStats.accordion } />
