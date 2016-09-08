@@ -7,6 +7,7 @@ import { translate } from 'i18n-calypso';
 import {
 	debounce,
 	find,
+	isEmpty,
 	mapValues,
 	omit,
 	property,
@@ -72,23 +73,22 @@ export class Tour extends Component {
 			tour: name,
 			tourVersion: version,
 			step: stepName,
-			isLastStep: this.isLastStep( props )
+			isLastStep: this.isLastStep( { step: stepName, branching } ),
 		};
 	}
 
-	findNextStep( props ) {
-		const { children, stepName } = props;
+	findNextStep() {
+		const { children, stepName } = this.props;
 		return find( children, stepComponent =>
 			stepComponent.props.name === stepName );
 	}
 
-	isLastStep( props ) {
-		const children = props.children;
-		return this.findNextStep( props ) === children[ children.length - 1 ];
+	isLastStep( { step, branching } ) {
+		return isEmpty( branching[ step ] );
 	}
 
 	render() {
-		const nextStep = this.findNextStep( this.props );
+		const nextStep = this.findNextStep();
 
 		if ( ! nextStep ) {
 			return null;
