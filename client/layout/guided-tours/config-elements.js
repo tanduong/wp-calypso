@@ -39,6 +39,11 @@ const contextTypes = Object.freeze( {
 	step: PropTypes.string.isRequired,
 } );
 
+const objFirst = ( obj ) => {
+	const key = Object.keys( obj )[ 0 ];
+	return key && obj[ key ];
+};
+
 export class Tour extends Component {
 	static propTypes = {
 		name: PropTypes.string.isRequired,
@@ -156,11 +161,11 @@ export class Step extends Component {
 	}
 
 	skipIfInvalidContext( props, context ) {
-		const { when, next } = props;
-		const { isValid, tour, tourVersion } = context;
+		const { when } = props;
+		const { branching, isValid, step, tour, tourVersion } = context;
 		if ( when && ! isValid( when ) ) {
-			//TODO(ehg): use future branching code get next step
-			this.context.next( { tour, tourVersion, nextStepName: next, doNotTrack: true } );
+			const nextStepName = objFirst( branching[ step ] );
+			context.next( { tour, tourVersion, nextStepName, doNotTrack: true } );
 		}
 	}
 

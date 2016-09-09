@@ -25,7 +25,6 @@ class GuidedTours extends Component {
 	}
 
 	next = ( { tour, tourVersion, nextStepName, doNotTrack = false } ) => {
-		console.log( tour, tourVersion, nextStepName, doNotTrack );
 		if ( ! doNotTrack ) {
 			tracks.recordEvent( 'calypso_guided_tours_next', {
 				tour,
