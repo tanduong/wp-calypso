@@ -82,13 +82,13 @@ module.exports = {
 		};
 
 		if ( context.path.match( legacyPathRegexes.feedStream ) ) {
-			page.redirect( `/read/feeds/${context.params.feed_id}` );
+			page.redirect( `/read/feeds/${ context.params.feed_id }` );
 		} else if ( context.path.match( legacyPathRegexes.feedFullPost ) ) {
-			page.redirect( `/read/feeds/${context.params.feed_id}/posts/${context.params.post_id}` );
+			page.redirect( `/read/feeds/${ context.params.feed_id }/posts/${ context.params.post_id }` );
 		} else if ( context.path.match( legacyPathRegexes.blogStream ) ) {
-			page.redirect( `/read/blogs/${context.params.blog_id}` );
+			page.redirect( `/read/blogs/${ context.params.blog_id }` );
 		} else if ( context.path.match( legacyPathRegexes.blogFullPost ) ) {
-			page.redirect( `/read/blogs/${context.params.blog_id}/posts/${context.params.post_id}` );
+			page.redirect( `/read/blogs/${ context.params.blog_id }/posts/${ context.params.post_id }` );
 		}
 
 		next();
@@ -106,9 +106,9 @@ module.exports = {
 		let redirect;
 		// Have we arrived at a URL ending in /posts? Redirect to feed stream/blog stream
 		if ( context.path.match( /^\/read\/feeds\/([0-9]+)\/posts$/i ) ) {
-			redirect = `/read/feeds/${context.params.feed_id}`;
+			redirect = `/read/feeds/${ context.params.feed_id }`;
 		} else if ( context.path.match( /^\/read\/blogs\/([0-9]+)\/posts$/i ) ) {
-			redirect = `/read/blogs/${context.params.blog_id}`;
+			redirect = `/read/blogs/${ context.params.blog_id }`;
 		}
 
 		if ( redirect ) {
@@ -176,7 +176,6 @@ module.exports = {
 	},
 
 	sidebar: function( context, next ) {
-
 		renderWithReduxStore(
 			React.createElement( ReduxProvider, { store: context.store },
 				React.createElement( ReaderSidebarComponent, { path: context.path } )
@@ -194,7 +193,7 @@ module.exports = {
 	},
 
 	following: function( context ) {
-		var StreamComponent = require( 'reader/stream' ),
+		let StreamComponent = require( 'reader/stream' ),
 			basePath = route.sectionify( context.path ),
 			fullAnalyticsPageTitle = analyticsPageTitle + ' > Following',
 			followingStore = feedStreamFactory( 'following' ),
@@ -228,12 +227,12 @@ module.exports = {
 	},
 
 	feedDiscovery: function( context, next ) {
-		var feedLookup = require( 'lib/feed-lookup' );
+		const feedLookup = require( 'lib/feed-lookup' );
 
 		if ( ! context.params.feed_id.match( /^\d+$/ ) ) {
 			feedLookup( context.params.feed_id )
 				.then( function( feedId ) {
-					page.redirect( `/read/feeds/${feedId}` );
+					page.redirect( `/read/feeds/${ feedId }` );
 				} )
 				.catch( function() {
 					renderFeedError( context );
@@ -244,7 +243,7 @@ module.exports = {
 	},
 
 	feedListing: function( context ) {
-		var FeedStream = require( 'reader/feed-stream' ),
+		let FeedStream = require( 'reader/feed-stream' ),
 			basePath = '/read/feeds/:feed_id',
 			fullAnalyticsPageTitle = analyticsPageTitle + ' > Feed > ' + context.params.feed_id,
 			feedStore = feedStreamFactory( 'feed:' + context.params.feed_id ),
@@ -279,7 +278,7 @@ module.exports = {
 	},
 
 	blogListing: function( context ) {
-		var SiteStream = require( 'reader/site-stream' ),
+		let SiteStream = require( 'reader/site-stream' ),
 			basePath = '/read/blogs/:blog_id',
 			fullAnalyticsPageTitle = analyticsPageTitle + ' > Site > ' + context.params.blog_id,
 			feedStore = feedStreamFactory( 'site:' + context.params.blog_id ),
@@ -319,7 +318,7 @@ module.exports = {
 	},
 
 	readA8C: function( context ) {
-		var StreamComponent = require( 'reader/stream' ),
+		let StreamComponent = require( 'reader/stream' ),
 			basePath = route.sectionify( context.path ),
 			fullAnalyticsPageTitle = analyticsPageTitle + ' > A8C',
 			feedStore = feedStreamFactory( 'a8c' ),
