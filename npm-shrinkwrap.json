@@ -24,7 +24,7 @@
       "version": "0.8.1"
     },
     "ajv": {
-      "version": "4.7.5"
+      "version": "4.7.6"
     },
     "ajv-keywords": {
       "version": "1.1.1"
@@ -69,7 +69,7 @@
       "version": "1.0.0"
     },
     "array-find-index": {
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "array-flatten": {
       "version": "1.1.1"
@@ -160,7 +160,7 @@
       "version": "6.1.2"
     },
     "babel-generator": {
-      "version": "6.16.0",
+      "version": "6.17.0",
       "dependencies": {
         "source-map": {
           "version": "0.5.6"
@@ -224,6 +224,9 @@
     "babel-plugin-syntax-async-functions": {
       "version": "6.13.0"
     },
+    "babel-plugin-syntax-async-generators": {
+      "version": "6.13.0"
+    },
     "babel-plugin-syntax-class-properties": {
       "version": "6.13.0"
     },
@@ -241,6 +244,9 @@
     },
     "babel-plugin-syntax-trailing-function-commas": {
       "version": "6.13.0"
+    },
+    "babel-plugin-transform-async-generator-functions": {
+      "version": "6.17.0"
     },
     "babel-plugin-transform-async-to-generator": {
       "version": "6.16.0"
@@ -285,7 +291,7 @@
       "version": "6.8.0"
     },
     "babel-plugin-transform-es2015-parameters": {
-      "version": "6.16.0"
+      "version": "6.17.0"
     },
     "babel-plugin-transform-es2015-shorthand-properties": {
       "version": "6.8.0"
@@ -336,7 +342,7 @@
       "version": "6.5.0"
     },
     "babel-preset-stage-3": {
-      "version": "6.16.0"
+      "version": "6.17.0"
     },
     "babel-register": {
       "version": "6.9.0",
@@ -362,7 +368,7 @@
       "version": "6.16.0"
     },
     "babylon": {
-      "version": "6.11.2"
+      "version": "6.11.4"
     },
     "backo2": {
       "version": "1.0.2"
@@ -398,7 +404,7 @@
       "version": "3.1.3"
     },
     "binary-extensions": {
-      "version": "1.6.0"
+      "version": "1.7.0"
     },
     "bl": {
       "version": "1.1.2"
@@ -474,7 +480,7 @@
       "version": "0.2.0"
     },
     "camel-case": {
-      "version": "0.1.0"
+      "version": "1.2.2"
     },
     "camelcase": {
       "version": "1.2.1"
@@ -488,7 +494,7 @@
       }
     },
     "caniuse-db": {
-      "version": "1.0.30000541"
+      "version": "1.0.30000542"
     },
     "caseless": {
       "version": "0.11.0"
@@ -520,15 +526,7 @@
       }
     },
     "change-case": {
-      "version": "2.3.1",
-      "dependencies": {
-        "camel-case": {
-          "version": "1.2.2"
-        },
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "2.3.1"
     },
     "char-spinner": {
       "version": "1.0.1"
@@ -592,7 +590,7 @@
       "version": "4.6.0"
     },
     "code-point-at": {
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "collapse-white-space": {
       "version": "1.0.2"
@@ -719,7 +717,10 @@
       "version": "0.2.2"
     },
     "creditcards": {
-      "version": "1.1.1"
+      "version": "2.1.2"
+    },
+    "creditcards-types": {
+      "version": "1.6.0"
     },
     "cross-spawn-async": {
       "version": "2.2.4"
@@ -902,12 +903,7 @@
       "version": "1.5.1"
     },
     "dot-case": {
-      "version": "1.1.2",
-      "dependencies": {
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "1.1.2"
     },
     "draft-js": {
       "version": "0.8.1",
@@ -1162,7 +1158,7 @@
       "version": "2.0.0"
     },
     "espree": {
-      "version": "3.3.1",
+      "version": "3.3.2",
       "dependencies": {
         "acorn": {
           "version": "4.0.3"
@@ -1224,6 +1220,9 @@
     "expand-range": {
       "version": "1.8.2"
     },
+    "expand-year": {
+      "version": "1.0.0"
+    },
     "exports-loader": {
       "version": "0.6.2"
     },
@@ -1260,6 +1259,9 @@
     },
     "fast-levenshtein": {
       "version": "2.0.5"
+    },
+    "fast-luhn": {
+      "version": "1.0.3"
     },
     "fastparse": {
       "version": "1.1.1"
@@ -1626,7 +1628,7 @@
       "version": "0.4.13"
     },
     "ieee754": {
-      "version": "1.1.6"
+      "version": "1.1.8"
     },
     "ignore": {
       "version": "3.1.5"
@@ -1727,13 +1729,16 @@
       "version": "1.0.0"
     },
     "is-finite": {
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "is-fullwidth-code-point": {
       "version": "1.0.0"
     },
     "is-glob": {
       "version": "2.0.1"
+    },
+    "is-integer": {
+      "version": "1.0.6"
     },
     "is-lower-case": {
       "version": "1.1.3"
@@ -1811,6 +1816,9 @@
     },
     "is-utf8": {
       "version": "0.2.1"
+    },
+    "is-valid-month": {
+      "version": "1.0.0"
     },
     "isarray": {
       "version": "1.0.0"
@@ -2325,7 +2333,7 @@
       "version": "1.2.2"
     },
     "number-is-nan": {
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "nwmatcher": {
       "version": "1.3.8"
@@ -2394,13 +2402,13 @@
       "version": "0.1.2"
     },
     "os-homedir": {
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "os-locale": {
       "version": "1.4.0"
     },
     "os-tmpdir": {
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "osenv": {
       "version": "0.1.3"
@@ -2426,18 +2434,19 @@
       "version": "0.2.9"
     },
     "param-case": {
-      "version": "1.1.2",
-      "dependencies": {
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "1.1.2"
     },
     "parse-glob": {
       "version": "3.0.4"
     },
+    "parse-int": {
+      "version": "1.0.2"
+    },
     "parse-json": {
       "version": "2.2.0"
+    },
+    "parse-year": {
+      "version": "1.0.0"
     },
     "parse5": {
       "version": "1.5.1"
@@ -2455,15 +2464,7 @@
       "version": "1.3.1"
     },
     "pascal-case": {
-      "version": "1.1.2",
-      "dependencies": {
-        "camel-case": {
-          "version": "1.2.2"
-        },
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "1.1.2"
     },
     "path-array": {
       "version": "1.0.1"
@@ -2472,18 +2473,13 @@
       "version": "0.0.0"
     },
     "path-case": {
-      "version": "1.1.2",
-      "dependencies": {
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "1.1.2"
     },
     "path-exists": {
       "version": "1.0.0"
     },
     "path-is-absolute": {
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "path-is-inside": {
       "version": "1.0.2"
@@ -2533,7 +2529,7 @@
       "version": "1.2.1"
     },
     "postcss": {
-      "version": "5.2.3",
+      "version": "5.2.4",
       "dependencies": {
         "chalk": {
           "version": "1.1.3",
@@ -2865,7 +2861,7 @@
       "version": "2.1.1"
     },
     "require-from-string": {
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     "require-main-filename": {
       "version": "1.0.1"
@@ -2997,7 +2993,7 @@
       }
     },
     "sentence-case": {
-      "version": "0.1.2"
+      "version": "1.1.3"
     },
     "serializerr": {
       "version": "1.0.3"
@@ -3076,12 +3072,7 @@
       "version": "0.0.4"
     },
     "snake-case": {
-      "version": "1.1.2",
-      "dependencies": {
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "1.1.2"
     },
     "sntp": {
       "version": "1.0.9"
@@ -3378,12 +3369,7 @@
       "version": "4.3.12"
     },
     "title-case": {
-      "version": "1.1.2",
-      "dependencies": {
-        "sentence-case": {
-          "version": "1.1.3"
-        }
-      }
+      "version": "1.1.2"
     },
     "title-case-minors": {
       "version": "0.0.2"
@@ -3391,14 +3377,25 @@
     "to-array": {
       "version": "0.1.4"
     },
+    "to-camel-case": {
+      "version": "1.0.0"
+    },
     "to-capital-case": {
-      "version": "0.1.1"
+      "version": "0.1.1",
+      "dependencies": {
+        "to-no-case": {
+          "version": "0.1.1"
+        }
+      }
     },
     "to-fast-properties": {
       "version": "1.0.2"
     },
     "to-no-case": {
-      "version": "0.1.1"
+      "version": "1.0.1"
+    },
+    "to-space-case": {
+      "version": "1.0.0"
     },
     "to-title-case": {
       "version": "0.1.5"
@@ -3724,6 +3721,9 @@
     },
     "yeast": {
       "version": "0.1.2"
+    },
+    "zero-fill": {
+      "version": "2.2.3"
     }
   }
 }
