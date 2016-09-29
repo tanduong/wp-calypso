@@ -162,10 +162,10 @@ export class Step extends Component {
 
 	skipIfInvalidContext( props, context ) {
 		const { when } = props;
-		const { branching, isValid, step, tour, tourVersion } = context;
+		const { branching, isValid, next, step, tour, tourVersion } = context;
 		if ( when && ! isValid( when ) ) {
 			const nextStepName = objFirst( branching[ step ] );
-			context.next( { tour, tourVersion, nextStepName, doNotTrack: true } );
+			next( { tour, tourVersion, nextStepName, skipping: true } );
 		}
 	}
 
@@ -223,9 +223,9 @@ export class Next extends Component {
 	}
 
 	onClick = () => {
-		const { tour, tourVersion } = this.context;
+		const { next, tour, tourVersion } = this.context;
 		const { step: nextStepName } = this.props;
-		this.context.next( { tour, tourVersion, nextStepName } );
+		next( { tour, tourVersion, nextStepName } );
 	}
 
 	render() {
@@ -304,9 +304,9 @@ export class Continue extends Component {
 	}
 
 	onContinue = () => {
-		const { tour, tourVersion } = this.context;
+		const { next, tour, tourVersion } = this.context;
 		const { step: nextStepName } = this.props;
-		this.context.next( { tour, tourVersion, nextStepName } );
+		next( { tour, tourVersion, nextStepName } );
 	}
 
 	addTargetListener() {
