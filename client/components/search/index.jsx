@@ -56,6 +56,7 @@ const Search = React.createClass( {
 		autoFocus: PropTypes.bool,
 		disabled: PropTypes.bool,
 		onKeyDown: PropTypes.func,
+		onClick: PropTypes.func,
 		disableAutocorrect: PropTypes.bool,
 		onBlur: PropTypes.func,
 		searching: PropTypes.bool,
@@ -85,6 +86,7 @@ const Search = React.createClass( {
 			onSearchOpen: noop,
 			onSearchClose: noop,
 			onKeyDown: noop,
+			onClick: noop,
 			overlayStyling: noop,
 			disableAutocorrect: false,
 			searching: false,
@@ -342,6 +344,7 @@ const Search = React.createClass( {
 						onChange={ this.onChange }
 						onKeyUp={ this.keyUp }
 						onKeyDown={ this.keyDown }
+						onMouseUp={ this.props.onClick }
 						onFocus={ this.onFocus }
 						onBlur={ this.onBlur }
 						disabled={ this.props.disabled }
