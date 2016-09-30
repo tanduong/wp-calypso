@@ -168,11 +168,11 @@ const Search = React.createClass( {
 		const _this = this;
 
 		window.requestAnimationFrame(function() {
-			console.log( 'init_tokens: ' + _this.refs.overlay.scrollLeft );
-			console.log( 'init_input: ' + _this.refs.searchInput.scrollLeft );
+		//	console.log( 'init_tokens: ' + _this.refs.overlay.scrollLeft );
+		//	console.log( 'init_input: ' + _this.refs.searchInput.scrollLeft );
 			_this.refs.overlay.scrollLeft = _this.refs.searchInput.scrollLeft;
-			console.log( 'after_tokens: ' + _this.refs.overlay.scrollLeft );
-			console.log( 'after_input: ' + _this.refs.searchInput.scrollLeft );
+		//	console.log( 'after_tokens: ' + _this.refs.overlay.scrollLeft );
+		//	console.log( 'after_input: ' + _this.refs.searchInput.scrollLeft );
 		} );
 	},
 
