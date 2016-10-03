@@ -158,6 +158,16 @@ const ThemesMagicSearchCard = React.createClass( {
 		);
 	},
 
+	renderWelcomeSign: function() {
+		const taxonomies = Object.keys( this.state.taxonomies );
+
+		return (
+			taxonomies.map( ( taxonomy, i ) => {
+				return <span className="suggestions__taxonomy" key={ i }>{ taxonomy }</span>;
+			} )
+		);
+	},
+
 	render() {
 		const isJetpack = this.props.site && this.props.site.jetpack;
 		const isPremiumThemesEnabled = config.isEnabled( 'upgrades/premium-themes' );
@@ -211,6 +221,7 @@ const ThemesMagicSearchCard = React.createClass( {
 				<Suggestions
 					terms={ this.state.taxonomies }
 					input={ this.state.editedSearchElement }
+					welcomeSign={ this.renderWelcomeSign }
 				/>
 			</div>
 		);

@@ -168,7 +168,8 @@ const Search = React.createClass( {
 
 	scrollOverlay: function() {
 		const _this = this;
-
+		//ES6 arrow functions bind this to immediate lexical scope this. Check if this
+		// apples here?
 		window.requestAnimationFrame(function() {
 		//	console.log( 'init_tokens: ' + _this.refs.overlay.scrollLeft );
 		//	console.log( 'init_input: ' + _this.refs.searchInput.scrollLeft );
