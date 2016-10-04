@@ -460,7 +460,7 @@ const FormGeneral = React.createClass( {
 						<FormLabel>
 							<FormCheckbox
 								name="hello_vote_enabled"
-								checkedLink={ this.linkState( 'hello_vote_enabled' ) }
+								checkedLink={ this.getHelloVoteStateLink() }
 							/>
 							<span>{ this.translate( 'Show a voter registration form to logged-in US-based viewers of my blog.' ) }</span>
 						</FormLabel>
@@ -468,6 +468,20 @@ const FormGeneral = React.createClass( {
 				</ul>
 			</FormFieldset>
 		);
+	},
+
+	getHelloVoteStateLink() {
+		const stateLink = this.linkState( 'hello_vote_enabled' );
+		const originalRequestChange = stateLink.requestChange;
+		stateLink.requestChange = ( newValue ) => {
+			if ( newValue ) {
+				analytics.mc.bumpStat( 'hello-vote', 'calypso-option-enabled' );
+			} else {
+				analytics.mc.bumpStat( 'hello-vote', 'calypso-option-disabled' );
+			}
+			return originalRequestChange.call( this, newValue );
+		};
+		return stateLink;
 	},
 
 	Timezone() {
