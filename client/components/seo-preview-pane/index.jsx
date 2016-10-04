@@ -86,6 +86,7 @@ const getSeoExcerptForSite = ( site ) => {
 	}
 
 	return formatExcerpt( find( [
+		get( site, 'options.advanced_seo_front_page_description' ),
 		get( site, 'options.seo_meta_description' ),
 		site.description
 	], identity ) );
