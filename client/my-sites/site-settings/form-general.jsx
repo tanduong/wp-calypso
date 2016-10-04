@@ -462,7 +462,7 @@ const FormGeneral = React.createClass( {
 								name="hello_vote_enabled"
 								checkedLink={ this.getHelloVoteStateLink() }
 							/>
-							<span>{ this.translate( 'Show a voter registration form to logged-in US-based viewers of my blog.' ) }</span>
+							<span>{ this.translate( 'Encourage your US-based visitors to register to vote by adding a subtle prompt to your site' ) }</span>
 						</FormLabel>
 					</li>
 				</ul>
