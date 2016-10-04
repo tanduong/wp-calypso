@@ -3,27 +3,25 @@
 /**
  * External dependencies
  */
-let webpack = require( 'webpack' ),
+const webpack = require( 'webpack' ),
 	path = require( 'path' );
 
 /**
  * Internal dependencies
  */
-let config = require( './server/config' ),
+const config = require( './server/config' ),
 	sections = require( './client/sections' ),
 	ChunkFileNamePlugin = require( './server/bundler/plugin' );
 
 /**
  * Internal variables
  */
-let CALYPSO_ENV = process.env.CALYPSO_ENV || 'development',
-	jsLoader,
-	webpackConfig;
+const CALYPSO_ENV = process.env.CALYPSO_ENV || 'development';
 
 const bundleEnv = config( 'env' );
 const sectionCount = sections.length;
 
-webpackConfig = {
+const webpackConfig = {
 	bail: CALYPSO_ENV !== 'development',
 	cache: true,
 	entry: {},
@@ -111,7 +109,7 @@ if ( CALYPSO_ENV === 'desktop' || CALYPSO_ENV === 'desktop-mac-app-store' ) {
 	webpackConfig.externals.push( 'jquery' );
 }
 
-jsLoader = {
+const jsLoader = {
 	test: /\.jsx?$/,
 	exclude: /node_modules/,
 	loaders: [ 'babel-loader?cacheDirectory' ]
