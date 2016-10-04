@@ -53,6 +53,7 @@ const FormGeneral = React.createClass( {
 			settings.timezone_string = site.settings.timezone_string;
 			settings.jetpack_relatedposts_allowed = site.settings.jetpack_relatedposts_allowed;
 			settings.jetpack_sync_non_public_post_stati = site.settings.jetpack_sync_non_public_post_stati;
+			settings.hello_vote_enabled = site.settings.hello_vote_enabled;
 
 			if ( settings.jetpack_relatedposts_allowed ) {
 				settings.jetpack_relatedposts_enabled = ( site.settings.jetpack_relatedposts_enabled ) ? 1 : 0;
@@ -103,7 +104,8 @@ const FormGeneral = React.createClass( {
 			jetpack_relatedposts_show_headline: false,
 			jetpack_relatedposts_show_thumbnails: false,
 			jetpack_sync_non_public_post_stati: false,
-			holidaysnow: false
+			holidaysnow: false,
+			hello_vote_enabled: false,
 		} );
 	},
 
@@ -442,6 +444,32 @@ const FormGeneral = React.createClass( {
 		);
 	},
 
+	helloVoteOption() {
+		// Note that years and months below are zero indexed
+		const site = this.props.site;
+
+		if ( site.jetpack ) {
+			return null;
+		}
+
+		return (
+			<FormFieldset>
+				<legend>{ this.translate( 'US Voter Registration Form' ) }</legend>
+				<ul>
+					<li>
+						<FormLabel>
+							<FormCheckbox
+								name="hello_vote_enabled"
+								checkedLink={ this.linkState( 'hello_vote_enabled' ) }
+							/>
+							<span>{ this.translate( 'Show a voter registration form to logged-in US-based viewers of my blog.' ) }</span>
+						</FormLabel>
+					</li>
+				</ul>
+			</FormFieldset>
+		);
+	},
+
 	Timezone() {
 		if ( this.props.site.jetpack ) {
 			return;
@@ -511,6 +539,7 @@ const FormGeneral = React.createClass( {
 						{ this.languageOptions() }
 						{ this.Timezone() }
 						{ this.holidaySnowOption() }
+						{ this.helloVoteOption() }
 					</form>
 				</Card>
 
