@@ -747,7 +747,7 @@ const PostEditor = React.createClass( {
 		var content = this.refs.editor.getContent();
 
 		if ( mode === 'html' ) {
-			this.refs.editor.setEditorContent( content );
+			this.refs.editor.setEditorContent( content, false );
 		}
 
 		this.props.setEditorModePreference( mode );
