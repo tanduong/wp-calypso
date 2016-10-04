@@ -122,6 +122,7 @@ module.exports = {
 		},
 		defaultVariation: 'current',
 		allowExistingUsers: true
+	},
 	siteTitleStep: {
 		datestamp: '20160928',
 		variations: {
