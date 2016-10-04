@@ -1,38 +1,34 @@
 /**
  * External dependencies
  */
-import React, { PropTypes } from 'react';
+import { Component, PropTypes } from 'react';
 
 /**
  * Internal dependencies
  */
-import analytics from 'lib/analytics';
+import { tracks, mc } from 'lib/analytics';
 
-export default React.createClass( {
-
-	displayName: 'TrackComponentView',
-
-	propTypes: {
+export default class TrackComponentView extends Component {
+	static propTypes = {
 		eventName: PropTypes.string,
-		eventProperties: PropTypes.object
-	},
-
-	getDefaultProps() {
-		return {
-			eventName: null,
-			eventProperties: {}
-		}
-	},
+		eventProperties: PropTypes.object,
+		statGroup: PropTypes.string,
+		statName: PropTypes.string
+	};
 
 	componentWillMount() {
-		if ( this.props.eventName ) {
-			analytics.tracks.recordEvent( this.props.eventName, this.props.eventProperties );
+		const { eventName, eventProperties } = this.props;
+		if ( eventName ) {
+			tracks.recordEvent( eventName, eventProperties );
 		}
-	},
+
+		const { statGroup, statName } = this.props;
+		if ( statGroup ) {
+			mc.bumpStat( statGroup, statName );
+		}
+	}
 
 	render() {
 		return null;
 	}
-
-} );
-
+}
